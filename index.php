@@ -1,22 +1,14 @@
 <?php session_start(); ?>
 <?php
- if(isset($_POST['reset'])){
-    $_SESSION['currentBalance'] = '';
-    $_SESSION['dice1'] = '';
-    $_SESSION['dice2'] = '';
-    $_SESSION['status'] = '';
-    $_SESSION['total'] = '';
-    session_destroy();
- }
+if (isset($_POST['reset'])) {
+    session_unset();
+    $_SESSION['currentBalance'] = 100;
+}
 ?>
 <?php
  if(isset($_POST['continue_play'])){
+    session_unset();
     $_SESSION['currentBalance'] = $_POST['balance'];
-    $_SESSION['dice1'] = '';
-    $_SESSION['dice2'] = '';
-    $_SESSION['status'] = '';
-    $_SESSION['total'] = '';
-    session_destroy();
  }
 ?>
 <!DOCTYPE html>
